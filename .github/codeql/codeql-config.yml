@@ -1,19 +1,5 @@
 name: "javascript-action CodeQL config"
 
-on:
-  push:
-  workflow_dispatch:
-jobs:
-  test-gh-action:
-    name: test the action
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/setup-node@v3
-          with:
-            node-version: 16
-        - name: Use Python 3
-          uses: actions/setup-python@v4
-          with:
-            python-version: "3.11"
-        - name: Use MY GH Action
-          uses: AykutBurak/test-gh-action@v1
+paths-ignore: 
+  - node_modules
+  - dist
