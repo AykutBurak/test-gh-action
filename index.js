@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const validateJSONs = require('./validateJson')
+const validateJSONs = require('./validateJsons')
 
 async function run() {
   try {
