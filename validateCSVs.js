@@ -8,8 +8,7 @@ module.exports = function validateCSVs() {
   return Promise.all(CSVsInDir.map(file => {
     const fileData = fs.readFileSync(path.join('./lang', file));
     return CSVValidator(fileData).then(csvData => {
-        csvData.data // Array of objects from file
-        throw new Error(csvData.inValidData) // Array of error messages
+        throw new Error(csvData.inValidData.map(({ message }) => message).join(', ')) // Array of error messages
     })
   }));
 }
