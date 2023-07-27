@@ -2689,17 +2689,19 @@ exports["default"] = _default;
 /***/ }),
 
 /***/ 693:
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const fs = __nccwpck_require__(147);
 const path = __nccwpck_require__(17)
 
-const jsonsInDir = fs.readdirSync('./lang').filter(file => path.extname(file) === '.json');
+module.exports = function validateJSONs() {
+  const jsonsInDir = fs.readdirSync('./lang').filter(file => path.extname(file) === '.json');
 
-jsonsInDir.forEach(file => {
-  const fileData = fs.readFileSync(path.join('./lang', file));
-  JSON.parse(fileData.toString());
-});
+  jsonsInDir.forEach(file => {
+    const fileData = fs.readFileSync(path.join('./lang', file));
+    JSON.parse(fileData.toString());
+  });
+}
 
 /***/ }),
 
